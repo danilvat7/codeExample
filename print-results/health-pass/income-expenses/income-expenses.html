@@ -1,0 +1,36 @@
+<div class="animation">
+	<form [formGroup]="form">
+		<aimo-slider formControlName="grossIncome"
+		             [tabindex]="0"
+		             [min]="0"
+		             [max]="15000"
+		             [now]="getCurrentValue('grossIncome')"
+		             [step]="35"
+		             [showBubble]="true"
+		             [hideBubbleValue]="true"
+		             [leftLabel]="'printResults.incomeExpensesQuestion.grossIncome.leftLabel'"
+		             [rightLabel]="'printResults.incomeExpensesQuestion.grossIncome.rightLabel'"></aimo-slider>
+
+		<aimo-slider formControlName="netIncome"
+		             [tabindex]="0"
+		             [min]="0"
+		             [max]="15000"
+		             [now]="getCurrentValue('netIncome')"
+		             [step]="35"
+		             [showBubble]="true"
+		             [hideBubbleValue]="true"
+		             [leftLabel]="'printResults.incomeExpensesQuestion.nettIncome.leftLabel'"
+		             [rightLabel]="'printResults.incomeExpensesQuestion.nettIncome.rightLabel'"></aimo-slider>
+
+		<aimo-slider formControlName="monthlyExpenses"
+		             [tabindex]="0"
+		             [min]="0"
+		             [max]="15000"
+		             [now]="getCurrentValue('monthlyExpenses')"
+		             [step]="35"
+		             [showBubble]="true"
+		             [hideBubbleValue]="true"
+		             [leftLabel]="'printResults.incomeExpensesQuestion.monthlyIncome.leftLabel'"
+		             [rightLabel]="'printResults.incomeExpensesQuestion.monthlyIncome.rightLabel'"></aimo-slider>
+	</form>
+</div>

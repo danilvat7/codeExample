@@ -1,0 +1,38 @@
+<div class="animation">
+	<form [formGroup]="form">
+
+		<aimo-slider [tabIndex]="0"
+		             [min]="0"
+		             [max]="100"
+		             [leftLabel]="'printResults.workTimeQuestion.officeTime'"
+		             [rightLabel]="'%'"
+		             [step]="1"
+		             [now]="officeWorkValue"
+		             [showBubble]="true"
+		             [hideBubbleValue]="true"
+		             formControlName="officeWork"></aimo-slider>
+
+		<aimo-slider [tabIndex]="0"
+		             [min]="0"
+		             [max]="100"
+		             [leftLabel]="'printResults.workTimeQuestion.physicalWork'"
+		             [rightLabel]="'%'"
+		             [step]="1"
+		             [now]="physicalWorkValue"
+		             [showBubble]="true"
+		             [hideBubbleValue]="true"
+		             formControlName="physicalWork"></aimo-slider>
+
+		<div>
+			<p class="default-sub-title"
+			   style="margin-top: -10px;">{{'printResults.workTimeQuestion.subtitle' | i18next }}</p>
+
+			<aimo-select-list [dataList]="personalResponsibilityOptions"
+			                  [class]="'print-results-select'"
+			                  [itemWidth]="'32%'"
+			                  formControlName="personalResponsibility">
+			</aimo-select-list>
+		</div>
+
+	</form>
+</div>

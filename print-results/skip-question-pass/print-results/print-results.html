@@ -1,0 +1,6 @@
+<aimo-button label="{{ 'printResults.resumeQuestions.printBtn' | i18next }}"
+             (submitAction)="printResults()"></aimo-button>
+
+<aimo-print #printTemplate
+            *ngIf="dataToPrint"
+            [dataToPrint]="dataToPrint"></aimo-print>

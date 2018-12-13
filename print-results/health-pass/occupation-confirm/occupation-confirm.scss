@@ -1,0 +1,7 @@
+occupation-confirm {
+    aimo-checkbox {
+        @include mdc-checkbox-container-colors(transparent, transparent, white, white, true);
+        @include mdc-checkbox-ink-color(map-get($colors, bg-cobalt));
+        @include mdc-checkbox-focus-indicator-color(white)
+    }
+}

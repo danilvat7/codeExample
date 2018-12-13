@@ -1,0 +1,22 @@
+<div class="animation">
+	<form [formGroup]="form">
+		<aimo-select-list [dataList]="insuranceOptions"
+		                  [class]="'print-results-select'"
+		                  [itemWidth]="'32%'"
+		                  formControlName="healthInsurance">
+		</aimo-select-list>
+
+		<aimo-slider *ngIf="form.get('healthInsurance').value === 'private' || form.get('healthInsurance').value === 'voluntarily'"
+		             formControlName="monthlyHealthInsuranceCost"
+		             [tabindex]="0"
+		             [min]="0"
+		             [max]="5000"
+		             [now]="monthlyHealthInsuranceCostValue"
+		             [step]="10"
+		             [showBubble]="true"
+		             [hideBubbleValue]="true"
+		             [leftLabel]="'printResults.insuredStatusQuestion.privateEnsurance.leftLabel'"
+		             [rightLabel]="'printResults.insuredStatusQuestion.privateEnsurance.rightLabel'"></aimo-slider>
+	</form>
+
+</div>

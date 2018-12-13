@@ -1,0 +1,38 @@
+<ion-header no-border>
+
+	<ion-navbar transparent>
+		<ion-title>{{ 'printResults.skipQuestionPass.title' | i18next }}</ion-title>
+		<button ion-button
+		        menuToggle
+		        right>
+			<ion-icon name="menu"
+			          color="lighter"></ion-icon>
+		</button>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content padding
+             no-bounce
+             [class.no-margin]="!questions.isShowComponent">
+
+	<ion-grid no-padding
+	          class="centered-items">
+		<ion-row justify-content-center>
+
+			<!-- Circle status -->
+			<aimo-circle-preview [currentStep]="currentQuestionNumber"
+			                     [steps]="2"
+			                     [imageUrl]="questionImgUrl"></aimo-circle-preview>
+		</ion-row>
+	</ion-grid>
+	<ion-grid no-padding
+			  class="centered-items">
+		
+		<!-- Questions slider  -->
+		<aimo-questions #questions
+		                [data]="questionList">
+		</aimo-questions>
+	</ion-grid>
+</ion-content>
+

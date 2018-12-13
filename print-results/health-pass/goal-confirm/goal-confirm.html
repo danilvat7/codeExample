@@ -1,0 +1,10 @@
+<div class="animation">
+	<form [formGroup]="form">
+		<aimo-select-list [dataList]="goalOptions"
+		                  [class]="'print-results-select'"
+		                  formControlName="goal"
+		                  (onSelect)="onSelectGoal($event)">
+		</aimo-select-list>
+	</form>
+
+</div>

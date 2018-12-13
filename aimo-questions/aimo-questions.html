@@ -1,0 +1,62 @@
+<ion-row class="questions-holder"
+         [class.show-alter-control]="isSkipFisrtQuestion || isShowComponent">
+	<ion-col col-12
+	         col-sm-12
+	         col-md-6
+	         offset-md-3
+	         no-padding
+		    text-center>
+		    
+		<!-- Question/forms slider -->
+		<div class="question-item"
+		     *ngFor="let item of currentQuestion; let i=index">
+			<div class="default-title"
+			     *ngIf="!(score >= scoreVerge && item && item.mightBeSkip)"
+			     [class.animation]="isAnimate">{{item && item.question | i18next}}</div>
+			<div class="default-title"
+			     *ngIf="score >= scoreVerge && item && item.mightBeSkip"
+			     [class.animation]="isAnimate">{{item && item.question}}</div>
+
+			<div class="default-sub-title animation"
+			     *ngIf="!isShowComponent">{{item && item.subquestion | i18next}}</div>
+		</div>
+
+		<!-- View Container Ref -->
+		<div>
+			<template #componentContainer></template>
+		</div>
+	</ion-col>
+</ion-row>
+
+<div class="questions-control"
+	[class.show-alter-control]="isSkipFisrtQuestion || isShowComponent">
+	
+	<!-- Standart questions btns -->
+	<div class="btns-holder"
+		*ngIf="!isSkipFisrtQuestion && !isShowComponent">
+		
+	
+		<aimo-overview-button class="default-footer-link"
+		                      label="{{ 'printResults.questionPage.yesBtn' | i18next }}"
+		                      (submitAction)="next(true)"></aimo-overview-button>
+
+		<aimo-overview-button class="default-footer-link no-btn"
+		                      label="{{ 'printResults.questionPage.noBtn' | i18next }}"
+		                      (submitAction)="next(false)"></aimo-overview-button>
+	</div>
+
+	<!-- Btns for forms -->
+	<div class="btns-holder"
+	     *ngIf="isSkipFisrtQuestion || isShowComponent">
+		<aimo-overview-button *ngIf="isSkipFisrtQuestion"
+		                      class="default-footer-link"
+		                      label="{{ 'printResults.questionPage.skipBtn' | i18next }}"
+		                      (submitAction)="skipFirst()"></aimo-overview-button>
+
+		<aimo-overview-button *ngIf="isShowComponent && btnType === 'confirm'"
+		                      class="default-footer-link"
+		                      label="{{ 'printResults.questionPage.confirmBtn' | i18next }}"
+		                      [disable]="!isCurrentActiveFormValid"
+		                      (submitAction)="next()"></aimo-overview-button>
+	</div>
+</div>

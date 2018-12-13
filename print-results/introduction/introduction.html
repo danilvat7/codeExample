@@ -1,0 +1,70 @@
+<ion-header no-border>
+
+	<ion-navbar transparent>
+		<ion-title>{{'printResults.title' | i18next}}</ion-title>
+		<button ion-button
+		        menuToggle
+		        right>
+			<ion-icon name="menu"
+			          color="lighter"></ion-icon>
+		</button>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content padding
+             no-bounce>
+	<ion-grid no-padding
+	          class="centered-items">
+		<ion-row justify-content-center>
+			
+			<!-- Circle status -->
+			<aimo-circle-preview [currentStep]="0"
+			                     [steps]="1"
+			                     imageClass="big"
+			                     imageUrl="assets/print-flow-icons/AIMO-HealthPass_Deliverable.gif"></aimo-circle-preview>
+
+		</ion-row>
+	</ion-grid>
+	<ion-grid no-padding
+	          class="centered-items">
+		<ion-row>
+			<ion-col col-12
+			         col-sm-12
+			         col-md-6
+			         offset-md-3
+			         no-padding
+			         text-center>
+				<div class="default-title">{{'printResults.introduction.title' | i18next}}</div>
+				<div class="default-sub-title">
+					<p>{{'printResults.introduction.subTitle' |  i18next}}</p>
+					<p>1. {{'printResults.introduction.1Question' | i18next}}</p>
+					<p>2. {{'printResults.introduction.2Question' | i18next}}</p>
+					<p>3. {{'printResults.introduction.3Question' | i18next}}</p>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row justify-content-center>
+			<ion-col col-8
+			         col-sm-6
+			         col-md-6
+			         offset-md-3
+			         no-padding>
+				<aimo-button label="{{ 'printResults.introduction.nextBtn' | i18next }}"
+				             (submitAction)="goToBirthDatePage()"></aimo-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar class="aimo-footer"
+	             mode="md"
+	             transparent
+	             no-padding
+	             text-center>
+		<aimo-overview-button class="default-footer-link"
+		                      label="{{ 'printResults.introduction.skipBtn' | i18next }}"
+		                      (submitAction)="goToskipQuestions()"></aimo-overview-button>
+	</ion-toolbar>
+</ion-footer>

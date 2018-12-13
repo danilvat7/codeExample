@@ -1,0 +1,56 @@
+<ion-header no-border>
+
+	<ion-navbar transparent>
+		<ion-title>{{ 'printResults.resumeQuestions.title' | i18next }}</ion-title>
+		<button ion-button
+		        menuToggle
+		        right>
+			<ion-icon name="menu"
+			          color="lighter"></ion-icon>
+		</button>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content padding
+             no-bounce>
+	<ion-grid no-padding
+	          class="centered-items">
+		<ion-row justify-content-center>
+			
+			<!-- Circle status -->
+			<aimo-circle-preview [currentStep]="7"
+			                     [steps]="7"
+			                     [complete]="true"
+			                     imageClass="big"
+			                     imageUrl="assets/imgs/Icon_AIMO+dark.svg"></aimo-circle-preview>
+		</ion-row>
+	</ion-grid>
+	<ion-grid no-padding
+	          class="centered-items">
+		<ion-row>
+			<ion-col col-12
+			         col-sm-12
+			         col-md-6
+			         offset-md-3
+			         no-padding
+			         text-center>
+				<div class="default-title">{{'printResults.resumeQuestions.subtitle' | i18next}}</div>
+				<div class="default-sub-title">{{(isShowSecondScreen ? 'printResults.resumeQuestions.text1' : 'printResults.resumeQuestions.text2') | i18next}}</div>
+			</ion-col>
+		</ion-row>
+		<ion-row justify-content-center>
+			<ion-col col-8
+			         col-sm-6
+			         col-md-6
+			         offset-md-3
+			         no-padding>
+				<aimo-button label="{{ 'printResults.resumeQuestions.printBtn' | i18next }}"
+				             (submitAction)="printResults()"></aimo-button>
+
+				<aimo-print #printTemplate
+				            [dataToPrint]="dataToPrint"></aimo-print>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

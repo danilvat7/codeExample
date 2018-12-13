@@ -1,0 +1,42 @@
+<ion-header no-border>
+
+	<ion-navbar transparent
+	            hideBackButton="false">
+		<ion-title>{{'printResults.questionPage.title' | i18next}}</ion-title>
+		<button ion-button
+		        menuToggle
+		        right>
+			<ion-icon name="menu"
+			          color="lighter"></ion-icon>
+		</button>
+	</ion-navbar>
+
+
+</ion-header>
+
+<ion-content padding
+             no-bounce
+             [class.no-margin]="!questions.isShowComponent">
+
+	<ion-grid no-padding
+	          class="centered-items">
+		<ion-row justify-content-center>
+
+			<!-- Circle status -->
+			<aimo-circle-preview [currentStep]="currentQuestionNumber"
+			                     [steps]="questionList && questionList.length + 1"
+													 [imageUrl]="questionImgUrl"
+													 [imageClass]="questionIconClassName"></aimo-circle-preview>
+		</ion-row>
+	</ion-grid>
+	<ion-grid no-padding
+			  class="centered-items">
+
+		<!-- Questions slider  -->
+		<aimo-questions #questions
+		                [data]="questionList"
+		                [score]="score"
+		                (onAnswer)="onAnswer($event)">
+		</aimo-questions>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,49 @@
+<div class="animation">
+	<aimo-dropdown
+		#occupationDropdown
+		[group]="form.get('occupationPrint')"
+		[name]="'occupation'"
+		[focus]="false"
+		[label]="'profileSettings.personal-information.occupation'"
+		[searchService]="occupationService"
+		[type]="'occupation'"
+		(onSelect)="onSelectOccupation($event)"
+	>
+	</aimo-dropdown>
+
+	<form [formGroup]="form">
+		<div style="margin-top:32px">
+			<aimo-select-list
+				[dataList]="jobPositionOptions"
+				[itemWidth]="'48%'"
+				[class]="'print-results-select'"
+				formControlName="jobPosition"
+				(onSelect)="onSelectJobPosition($event)"
+			>
+			</aimo-select-list>
+		</div>
+
+		<div
+			class="occupation-form"
+			*ngIf="form.get('jobPosition').value === 'student'">
+			<aimo-checkbox
+				[label]="checkBoxLabelStudent"
+				[isChecked]="medicalStudentValue"
+				(checkAction)="changeCheckbox($event, 'medicalStudent')"
+			></aimo-checkbox>
+		</div>
+
+		<div
+			class="occupation-form"
+			*ngIf="
+				form.get('jobPosition').value === 'employee' ||
+				form.get('jobPosition').value === 'trainee'
+			">
+			<aimo-checkbox
+				[label]="checkBoxLabelOfficial"
+				[isChecked]="officialValue"
+				(checkAction)="changeCheckbox($event, 'official')"
+			></aimo-checkbox>
+		</div>
+	</form>
+</div>
