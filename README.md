@@ -1,4 +1,3 @@
-# forReview
-Code for Review.
+Example of my code
 
 Good Luck!:)
